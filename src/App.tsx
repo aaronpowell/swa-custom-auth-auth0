@@ -1,32 +1,61 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import {
+  StaticWebAuthLogins,
+  UserInfoContextProvider,
+  useUserInfo,
+} from "@aaronpowell/react-static-web-apps-auth";
+
+const AuthStuff = () => {
+  const userInfo = useUserInfo();
+
+  if (userInfo.identityProvider) {
+    return <p>Welcome {userInfo.userDetails}</p>;
+  }
+
+  return (
+    <>
+      <StaticWebAuthLogins
+        azureAD={false}
+        facebook={false}
+        github={false}
+        google={false}
+        twitter={false}
+      />
+      <a href="/.auth/login/auth0">Auth0</a>
+    </>
+  );
+};
 
 function App() {
   const [message, setMessage] = useState("");
   useEffect(() => {
     fetch("/api/get-message?name=Static Web Apps")
-    .then(res => res.text())
-    .then(data => setMessage(data));
+      .then((res) => res.text())
+      .then((data) => setMessage(data));
   }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {message && <p>{message}</p>}
-      </header>
-    </div>
+    <UserInfoContextProvider>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+          {message && <p>{message}</p>}
+          <AuthStuff />
+        </header>
+      </div>
+    </UserInfoContextProvider>
   );
 }
 
