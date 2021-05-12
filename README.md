@@ -1,8 +1,8 @@
-# Azure Static Web Apps - Custom auth with Okta
+# Azure Static Web Apps - Custom auth with Auth0
 
-This repository contains an example of how to use Okta as a custom auth provider to [Azure Static Web App](https://docs.microsoft.com/azure/static-web-apps/?WT.mc_id=javascript-28110-aapowell). You can read about how to implement this [on my blog](https://www.aaron-powell.com/posts/2021-05-13-using-okta-with-static-web-apps/).
+This repository contains an example of how to use Auth0 as a custom auth provider to [Azure Static Web App](https://docs.microsoft.com/azure/static-web-apps/?WT.mc_id=javascript-28110-aapowell). You can read about how to implement this [on my blog](https://www.aaron-powell.com/posts/2021-05-13-using-auth0-with-static-web-apps/).
 
-[Live Demo](https://blue-bay-0eac9b910.azurestaticapps.net).
+[Live Demo](https://white-desert-00c81d910.azurestaticapps.net).
 
 ## Azure Static Website React Template
 

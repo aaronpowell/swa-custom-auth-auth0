@@ -18,12 +18,10 @@ const AuthStuff = () => {
     <>
       <StaticWebAuthLogins
         azureAD={false}
-        facebook={false}
         github={false}
-        google={false}
         twitter={false}
+        customProviders={[{ id: "auth0", name: "Auth0" }]}
       />
-      <a href="/.auth/login/auth0">Auth0</a>
     </>
   );
 };
