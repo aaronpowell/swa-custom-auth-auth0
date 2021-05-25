@@ -2,6 +2,30 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Attach Edge JS Debugger",
+      "port": 9222,
+      "request": "attach",
+      "type": "pwa-msedge",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "vscode-edge-devtools.debug",
+      "request": "launch",
+      "name": "Run Edge DevTools",
+      "url": "http://localhost:4280",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": {
+        "task": "swa start",
+        "type": "shell"
+      }
+    },
+    {
+      "command": "swa start http://localhost:3000 --api http://localhost:7071",
+      "name": "Run emulator",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
       "command": "npm start",
       "name": "Run frontend",
       "request": "launch",
@@ -17,8 +41,14 @@
   ],
   "compounds": [
     {
-      "name": "Run full stack",
-      "configurations": ["Run frontend", "Run backend"]
+      "name": "Launch it all 🚀",
+      "configurations": [
+        "Run emulator",
+        "Run frontend",
+        "Run backend",
+        "Run Edge DevTools",
+        "Attach Edge JS Debugger"
+      ]
     }
   ]
 }
