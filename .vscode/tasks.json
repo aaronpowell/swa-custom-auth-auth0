@@ -46,7 +46,7 @@
         }
       },
       "label": "npm: start - api",
-      "detail": "npm-run-all --parallel start:host watch gen:watch",
+      "detail": "npm-run-all --parallel start:host watch",
       "isBackground": true
     },
     {
